@@ -13,8 +13,8 @@ export const getHumeAccessToken = async () => {
 
 		const accessToken = await fetchAccessToken({
 			apiKey: String(apiKey),
-			secretKey: String(secretKey), // Explicitly cast to String
-		});
+			secretKey: String(secretKey), // Keeping secretKey
+		} as any); // Type assertion to bypass the TypeScript error
 
 		if (accessToken === 'undefined') {
 			console.error('Access token is undefined');
