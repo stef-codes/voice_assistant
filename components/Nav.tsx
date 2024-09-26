@@ -32,9 +32,9 @@ export const Nav = () => {
         "px-4 py-2 flex items-center h-14 z-50 bg-card border-b border-border"
       }
     >
-      <div>
+      {/* <div>
         <HumeLogo className={"h-5 w-auto"} />
-      </div>
+      </div> */}
       <div className={"ml-auto flex items-center gap-1"}>
         <Button
           onClick={() => {
@@ -47,10 +47,10 @@ export const Nav = () => {
           variant={"ghost"}
           className={"ml-auto flex items-center gap-1.5"}
         >
-          <span>
+          {/* <span>
             <Github className={"size-4"} />
           </span>
-          <span>Star on GitHub</span>
+          <span>Star on GitHub</span> */}
         </Button>
         <Button
           onClick={toggleDark}
