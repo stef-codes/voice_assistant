@@ -4,16 +4,16 @@ import { fetchAccessToken } from "@humeai/voice";
 export const getHumeAccessToken = async () => {
 	try {
 		const apiKey = process.env.HUME_API_KEY;
-		const clientSecret = process.env.HUME_CLIENT_SECRET;
+		const secretKey = process.env.HUME_CLIENT_SECRET;
 
-		if (!apiKey || !clientSecret) {
+		if (!apiKey || !secretKey) {
 			console.error('HUME_API_KEY or HUME_CLIENT_SECRET is not set');
 			return null;
 		}
 
 		const accessToken = await fetchAccessToken({
 			apiKey: String(apiKey),
-			secretKey: String(clientSecret), // Explicitly cast to String
+			secretKey: String(secretKey), // Explicitly cast to String
 		});
 
 		if (accessToken === 'undefined') {
