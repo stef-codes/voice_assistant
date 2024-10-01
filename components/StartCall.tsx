@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
 
+
 export default function StartCall() {
   const { status, connect } = useVoice();
 
@@ -44,7 +45,7 @@ export default function StartCall() {
                     stroke={"currentColor"}
                   />
                 </span>
-                <span>Let's Chat</span>
+                <span>Start Call</span>
               </Button>
             </motion.div>
           </AnimatePresence>
