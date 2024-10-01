@@ -1,7 +1,7 @@
 import 'server-only';
 import { fetchAccessToken } from "@humeai/voice";
 
-export const getHumeAccessToken = async () => {
+export const getHumeAccessToken = async (configId?: string) => { // Accept configId as an optional parameter
 	try {
 		const apiKey = process.env.HUME_API_KEY;
 		const secretKey = process.env.HUME_CLIENT_SECRET;
@@ -14,6 +14,7 @@ export const getHumeAccessToken = async () => {
 		const accessToken = await fetchAccessToken({
 			apiKey: String(apiKey),
 			secretKey: String(secretKey), // Keeping secretKey
+			...(configId ? { configId: String("4c004f60-1c41-4b02-94b4-f56ee45a5c2d") } : {}), // Conditionally add configId
 		} as any); // Type assertion to bypass the TypeScript error
 
 		if (accessToken === 'undefined') {
