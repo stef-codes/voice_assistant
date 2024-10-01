@@ -6,6 +6,21 @@ import Controls from "./Controls";
 import StartCall from "./StartCall";
 import { ComponentRef, useRef } from "react";
 
+// Define the type for auth
+type AuthType = {
+  type: "accessToken";
+  value: string;
+  configId: "configId"; // Add configId here
+};
+
+// Update the VoiceProvider props to use the new type
+
+interface AccessTokenAuth {
+    type: "accessToken";
+    value: string;
+    configId: string; // Ensure configId is included here
+}
+
 export default function ClientComponent({
   accessToken,
 }: {
@@ -21,7 +36,7 @@ export default function ClientComponent({
       }
     >
       <VoiceProvider
-        auth={{ type: "accessToken", value: accessToken }}
+        auth={{ type: "accessToken", value: accessToken }} // Add configId here
         onMessage={() => {
           if (timeout.current) {
             window.clearTimeout(timeout.current);
